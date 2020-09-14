@@ -14,6 +14,8 @@ export default function App () {
         .then(response => {
           // Study this response with a breakpoint or log statements
           // and set the response data as the 'movieList' slice of state
+          setMovieList(response.data)
+          // console.log(response.data)
         })
         .catch(error => {
           console.error('Server Error', error);
@@ -21,6 +23,8 @@ export default function App () {
     }
     getMovies();
   }, []);
+
+  // console.log(movieList)
 
   const addToSavedList = id => {
     // This is stretch. Prevent the same movie from being "saved" more than once
