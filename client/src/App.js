@@ -22,7 +22,7 @@ export default function App () {
           // console.log(response.data)
         })
         .catch(error => {
-          console.error('Server Error', error);
+          console.error('Error: ', error);
         });
       }
       getMovies();
@@ -38,15 +38,17 @@ export default function App () {
     <div>
       <SavedList list={[ /* This is stretch */]} />
 
-      <div>Replace this Div with your Routes</div>
+      <Switch>
 
-    <Route path = '/'>
-      {/* <MovieList/> */}
-    </Route>
+        <Route path = '/'>
+          <MovieList movies={movieList} />
+        </Route>
 
-    <Route path = '/movies/:id'>
-      <Movie movie={movieList}/>
-    </Route>
+        <Route path = '/movies/:id'>
+          <Movie movieList={movieList} />
+        </Route>
+
+      </Switch>
 
 
     </div>
